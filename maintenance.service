@@ -1,0 +1,13 @@
+[Unit]
+Description=Run maintenace.sh before shutdown
+Before=poweroff.target halt.target
+
+[Service]
+ExecStart=/bin/true
+ExecStop=/storage/./maintenance.sh
+RemainAfterExit=true
+Type=oneshot
+User=root
+
+[Install]
+WantedBy=multi-user.target
